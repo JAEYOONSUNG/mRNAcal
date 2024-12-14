@@ -63,7 +63,7 @@ After installation, ensure that the JAVA_HOME environment variable is set correc
         ```bash
         export JAVA_HOME=$(/usr/libexec/java_home)
 
-Step 2: Install rJava
+### Step 2: Install rJava
 
 Once Java is installed and configured, you can install the rJava package:
     Windows:
