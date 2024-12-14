@@ -2,12 +2,12 @@
 mRNAcal is an R package designed to streamline the analysis of mRNA regions and RNA secondary structures. This package offers tools for organizing GenBank data, extracting FASTA sequences, generating mRNA regions, and processing RNA secondary structures using viennaRNA package.
 
 ## Features
-• GenBank Data Organization: Easily manage and extract information from GenBank files.
-• FASTA Extraction: Extract coding sequences (CDS) or other genomic regions in FASTA format.
-• Custom Downstream Sequences: Define a specific gene of interest (GOI) sequence to append to upstream regions.
-• mRNA Region Generation: Automatically generate mRNA regions with user-defined upstream lengths and optional GOI.
-• RNA Secondary Structure Prediction: Integrate RNAfold to calculate dot-bracket structures and minimum free energy (ΔG).
-• Pipeline Automation: Use run_mRNAcal() to execute the full pipeline in one step with customizable parameters.
+### • GenBank Data Organization: Easily manage and extract information from GenBank files.
+### • FASTA Extraction: Extract coding sequences (CDS) or other genomic regions in FASTA format.
+### • Custom Downstream Sequences: Define a specific gene of interest (GOI) sequence to append to upstream regions.
+### • mRNA Region Generation: Automatically generate mRNA regions with user-defined upstream lengths and optional GOI.
+### • RNA Secondary Structure Prediction: Integrate RNAfold to calculate dot-bracket structures and minimum free energy (ΔG).
+### • Pipeline Automation: Use run_mRNAcal() to execute the full pipeline in one step with customizable parameters.
 
 ## Installation
 
