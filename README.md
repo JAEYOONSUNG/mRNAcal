@@ -98,15 +98,14 @@ generate_mRNA_regions(upstream_values = seq(100, 500, 100), downstream = 100)
 # Define upstream and downstream regions of coding sequences for mRNA.
 # In cases where you have a specific gene of interest (GOI) sequence to append to upstream regions, you can use the custom_downstream_seq parameter.
 ```
-4. Process RNAfold Results
-The resulting `genbank_table` will include columns for each combination of upstream length and downstream region, as well as the custom sequence. Example:
-
 | locus_tag | seq_u100_dGOI                                | seq_u200_dGOI                                | ... |
 |-----------|---------------------------------------------|---------------------------------------------|-----|
 | gene1     | `ATCGG...ATGAAAAAAAAAAAAAAAAAAAAAAAAAAAA`   | `GCTAG...ATGAAAAAAAAAAAAAAAAAAAAAAAAAAAA`   | ... |
 | gene2     | `CGTTA...ATGAAAAAAAAAAAAAAAAAAAAAAAAAAAA`   | `TACGG...ATGAAAAAAAAAAAAAAAAAAAAAAAAAAAA`   | ... |
 
 ---
+4. Process RNAfold Results
+The resulting `genbank_table` will include columns for each combination of upstream length and downstream region, as well as the custom sequence. Example:
 
 # Process RNA sequences using RNAfold
 process_all_sequences(data = "genbank_table", rnafold_path = "/path/to/RNAfold")
