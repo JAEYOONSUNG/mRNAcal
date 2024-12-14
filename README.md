@@ -9,6 +9,7 @@ mRNAcal is an R package designed to streamline the analysis of mRNA regions and 
 #### • RNA Secondary Structure Prediction: Integrate RNAfold to calculate dot-bracket structures and minimum free energy (ΔG).
 #### • Pipeline Automation: Use run_mRNAcal() to execute the full pipeline in one step with customizable parameters.
 
+
 ## Installation
 
 To install the mRNAcal package and its dependencies, please follow these steps:
@@ -32,8 +33,8 @@ BiocManager::install(c("Biostrings", "ComplexHeatmap", "Peptides"))
 ### Step 2: Install CRAN dependencies
 
 Next, install the required CRAN packages. Some packages may not be installed automatically, so you can install them manually:
+ sometimes it can not installed automatically followed
 
-# sometimes it can not installed automatically followed
 # Install CRAN packages
 ```r
 install.packages(c("qdap", "seqinr", "circlize", "splitstackshape"))
