@@ -13,7 +13,7 @@ mRNAcal is an R package designed to streamline the analysis of mRNA regions and 
 ## Installation
 
 To install the mRNAcal package and its dependencies, please follow these steps:
-- Check if devtools is installed, and install it if necessary
+Check if devtools is installed, and install it if necessary
 ```r
 if (!requireNamespace("devtools", quietly = TRUE))
     install.packages("devtools")
