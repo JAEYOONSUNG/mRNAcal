@@ -4,7 +4,8 @@ mRNAcal is an R package designed to streamline the analysis of mRNA regions and 
 ## Features
 • GenBank Data Organization: Easily manage and extract information from GenBank files.
 • FASTA Extraction: Extract coding sequences (CDS) or other genomic regions in FASTA format.
-• mRNA Region Generation: Define upstream and downstream regions of mRNA for further analysis.
+• Custom Downstream Sequences: Define a specific gene of interest (GOI) sequence to append to upstream regions.
+• mRNA Region Generation: Automatically generate mRNA regions with user-defined upstream lengths and optional GOI.
 • RNA Secondary Structure Prediction: Integrate RNAfold to calculate dot-bracket structures and minimum free energy (ΔG).
 • Pipeline Automation: Use run_mRNAcal() to execute the full pipeline in one step with customizable parameters.
 
@@ -91,9 +92,10 @@ Genbank_organizer("example.gbk")
 genbank_fna_extractor()
 ```
 3. Generate mRNA Regions
-# Define upstream and downstream regions of coding sequences for mRNA
 ```r
 generate_mRNA_regions(upstream_values = seq(100, 500, 100), downstream = 100)
+# Define upstream and downstream regions of coding sequences for mRNA.
+# In cases where you have a specific gene of interest (GOI) sequence to append to upstream regions, you can use the custom_downstream_seq parameter.
 ```
 4. Process RNAfold Results
 # Process RNA sequences using RNAfold
@@ -109,3 +111,12 @@ run_mRNAcal(
   downstream = 150
 )
 ```
+```r
+run_mRNAcal(
+  genbank_file = "example.gbk",
+  rnafold_path = "/path/to/RNAfold",
+  upstream_values = seq(100, 500, 100),
+  custom_downstream_seq = "ATGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+```
+
+## Result
