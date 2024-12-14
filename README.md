@@ -26,7 +26,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
 BiocManager::install(c("Biostrings", "ComplexHeatmap", "Peptides"))
-
+```
 
 ### Step 2: Install CRAN dependencies
 
@@ -34,9 +34,10 @@ Next, install the required CRAN packages. Some packages may not be installed aut
 
 # sometimes it can not installed automatically followed
 # Install CRAN packages
+```r
 install.packages(c("qdap", "seqinr", "circlize", "splitstackshape"))
-
 #remotes::install_github("trinker/qdap")
+```
 
 ### Step 1: Install Java Development Kit (JDK)
 
@@ -66,32 +67,34 @@ Once Java is installed and configured, you can install the rJava package:
     Windows:
         ```bash
         Sys.setenv(JAVA_HOME="C:/Program Files/Java/jdk-11.0.1")
+        ```
         ```r
         install.packages("rJava")
+        ```
     Mac/Linux:
         ```r
         install.packages("rJava")
+        ```
 
 ### Step 3: Install mRNAcal package
 devtools::install_github("JAEYOONSUNG/mRNAcal")
 
 ## Usage
 1. Organizing GenBank Data
-`R
+```r
 # Organize GenBank file into a structured table
 Genbank_organizer("example.gbk")
-`
+```
 
 2. Extract FASTA Sequences
-`R
+```r
 genbank_fna_extractor()
-`
+```
 3. Generate mRNA Regions
 # Define upstream and downstream regions of coding sequences for mRNA
-generate_mRNA_regions(
-  upstream_values = seq(100, 500, 100),
-  downstream = 100
-)
+```r
+generate_mRNA_regions(upstream_values = seq(100, 500, 100), downstream = 100)
+```
 4. Process RNAfold Results
 # Process RNA sequences using RNAfold
 process_all_sequences(data = "genbank_table", rnafold_path = "/path/to/RNAfold")
@@ -99,11 +102,11 @@ process_all_sequences(data = "genbank_table", rnafold_path = "/path/to/RNAfold")
 ## Quick start
 5. Automate the Entire Pipeline
 # Run the complete pipeline
-`R
+```r
 run_mRNAcal(
   genbank_file = "example.gbk",
   rnafold_path = "/path/to/RNAfold",
   upstream_values = seq(100, 500, 100),
   downstream = 150
 )
-`
+```
