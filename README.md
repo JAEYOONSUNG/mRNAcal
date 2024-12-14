@@ -101,7 +101,6 @@ process_all_sequences(data = "genbank_table", rnafold_path = "/path/to/RNAfold")
 
 ## Quick start
 5. Automate the Entire Pipeline
-# Run the complete pipeline
 ```r
 run_mRNAcal(
   genbank_file = "example.gbk",
