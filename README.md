@@ -130,3 +130,10 @@ run_mRNAcal(
 ```
 
 ## Result
+
+
+### To be updated
+- plot mRNA fold
+- plot heatmap generation using free energy values
+- delete duplicated mRNA sequences in excel file
+- ciruclar form auto detection algorithm
