@@ -22,7 +22,7 @@
 #' rnafold_path <- "/path/to/RNAfold"
 #' result <- process_all_sequences(genbank_table, rnafold_path)
 
-get_mRNA_region <- function(genbank_table = NULL, upstream = 500, downstream = 100, complete = FALSE) {
+get_mRNA_region <- function(genbank_table = NULL, upstream = 100, downstream = 100, complete = FALSE) {
   # Find "_total" object if genbank_table is not provided
   if (is.null(genbank_table)) {
     total_objs <- ls(pattern = "_total$|genbank_table", envir = .GlobalEnv)
@@ -38,7 +38,7 @@ get_mRNA_region <- function(genbank_table = NULL, upstream = 500, downstream = 1
   # Ensure contig sequence exists
   if (!exists("contig_name", envir = .GlobalEnv)) {
     genbank_fna_extractor()
-    }
+    } else{next}
 
   contig_number_val <- genbank_table$contig_number[[1]]
   direction_val <- genbank_table$direction[[1]]

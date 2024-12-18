@@ -33,7 +33,7 @@
 #'   genbank_file = "example.gbk",
 #'   rnafold_path = "/path/to/RNAfold",
 #'   upstream_values = seq(100, 500, 100),
-#'   downstream = 200,
+#'   downstream = 100,
 #'   custom_downstream_seq = NULL
 #' )
 #'
@@ -42,18 +42,33 @@
 run_mRNAcal <- function(
     genbank_file = NULL,
     rnafold_path = "/Users/JaeYoon/miniconda3/bin/RNAfold",
-    upstream_values = seq(100, 500, 100),
+    upstream_values = seq(500, 500, 100),
     downstream = 100,
     custom_downstream_seq = NULL
 ) {
+  # Check if RNAfold path exists
+  if (!file.exists(rnafold_path)) {
+    stop(paste("RNAfold executable not found at:", rnafold_path,
+               "\nPlease provide a valid path to the RNAfold executable."))
+  }
+  message("RNAfold executable found at:", rnafold_path)
+
   message("Starting the mRNA Analysis Pipeline...")
 
   # Step 1: Organize GenBank data
   message("Step 1: Organizing GenBank data...")
-  if (!is.null(genbank_file)) {
+
+  # Check if genbank_table exists; if not, run Genbank_organizer()
+  if (!exists("genbank_table", envir = .GlobalEnv) || is.null(get("genbank_table", envir = .GlobalEnv))) {
+    message("genbank_table not found in the environment. Running Genbank_organizer()...")
     Genbank_organizer()
-  } else if (!exists("genbank_table", envir = .GlobalEnv)) {
-    stop("No genbank_table found in the environment. Please provide a GenBank file.")
+
+    # Verify that Genbank_organizer() successfully created genbank_table
+    if (!exists("genbank_table", envir = .GlobalEnv) || is.null(get("genbank_table", envir = .GlobalEnv))) {
+      stop("Genbank_organizer() did not create a valid genbank_table.")
+    }
+  } else {
+    message("Using pre-existing genbank_table in the environment.")
   }
   message("GenBank data organization complete.")
 
@@ -77,16 +92,15 @@ run_mRNAcal <- function(
   message("mRNA region generation complete.")
 
   # Step 5: Process RNAfold results
-  message("Step 5: Processing RNAfold results...")
-  process_all_sequences(data = "genbank_table", rnafold_path = rnafold_path)
+  if (exists("genbank_table", envir = .GlobalEnv)) {
+    genbank_table <- get("genbank_table", envir = .GlobalEnv)
+    process_all_sequences(rnafold_path = rnafold_path)
+    assign("genbank_table", genbank_table, envir = .GlobalEnv)
+  } else {
+    stop("genbank_table not found in the global environment.")
+  }
+
   message("RNAfold processing complete.")
 
   message("Pipeline execution completed successfully!")
-
-  # Return the processed table for inspection
-  if (exists("genbank_table", envir = .GlobalEnv)) {
-    return(get("genbank_table", envir = .GlobalEnv))
-  } else {
-    stop("Processed genbank_table is not available in the environment.")
-  }
 }
