@@ -36,7 +36,7 @@ Next, install the required CRAN packages. Some packages may not be installed aut
 
 # Install CRAN packages
 ```r
-install.packages(c("qdap", "seqinr", "circlize", "splitstackshape"))
+install.packages(c("qdap", "seqinr", "splitstackshape"))
 #remotes::install_github("trinker/qdap")
 ```
 
@@ -130,6 +130,14 @@ run_mRNAcal(
 ```
 
 ## Result
+
+| **Sequence**   | **Structure**                | **Free Energy (ΔG)** |
+|----------------|------------------------------|----------------------|
+| seq_u100_d100  | ..((((((((((.(((((((.......)))))...))))))..  | -51.3 kcal/mol |
+| seq_u200_d100  | ....(((.(((.((((((((...).)))))))))))).)))..  | -85.6 kcal/mol |
+| seq_u300_d100  | ...((((...((((.((((....))))..))))..........  | -102.4 kcal/mol |
+| seq_u400_d100  | ((((((........((((((...)............)))))).  | -138.4 kcal/mol |
+| seq_u500_d100  | ....((..((((.(((((((...))).))).))))..))....  | -39.3 kcal/mol |
 
 
 ### To be updated
