@@ -1,4 +1,4 @@
-# mRNAcal Package
+# mRNAcal
 mRNAcal is an R package designed to streamline the analysis of mRNA regions and RNA secondary structures. This package offers tools for organizing GenBank data, extracting FASTA sequences, generating mRNA regions, and processing RNA secondary structures using viennaRNA package.
 
 ## Features
